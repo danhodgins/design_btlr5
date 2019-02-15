@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -21,7 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 
 #gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
-gem 'devise', git: 'https://github.com/plataformatec/devise'
+gem 'devise'
 
 gem 'rails-erd', require: false, group: :development
 
@@ -58,3 +59,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
