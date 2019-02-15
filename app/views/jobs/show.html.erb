@@ -1,0 +1,109 @@
+
+<div class="row"><!-- still neeed to end this div -->
+<div class="border col-md-6 " >
+
+<p id="notice"><%= notice %></p>
+
+<h1><%= @job.title %></h1>
+<hr/>
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>
+<hr/>
+
+
+<table class="table">
+  <thead>
+	  <tr>
+		<td>Submitted: <strong><%= time_ago_in_words(@job.created_at) %> ago </strong> </td>
+    </tr>
+	  <tr>
+		<td>Updated: <strong><%= time_ago_in_words(@job.updated_at) %> ago </strong></td>
+    </tr>
+  </thead>
+</table>
+
+
+	<div style="border: 1px dashed #a9a9a9;">
+	JOB CUSTOMER ID
+		<h1><%= @job.customer_id %> </h1>
+	</div>
+	
+	<div style="border: 1px dashed #a9a9a9;">
+	JOB ID
+		<h1><%= @job.to_param %> </h1>
+	</div>
+	
+  <%= params.inspect %>
+
+
+
+
+	<strong>Job User Id:</strong> 
+	<%#= @job.user.id %>
+
+
+<h3>Creative Brief</h3>
+<p>
+<%= simple_format @job.body %>
+</p>
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>
+
+
+</div><!-- col-md-8-->
+
+<div class="border col-md-6">
+
+
+<h3>Notes On This job </h3>
+
+<table class="table">
+  <thead>
+  
+	<% @job.notes.each do |note| %>
+	  <tr>
+		<td><%= note.body %></td>
+		<td><%= time_ago_in_words(note.created_at) %> ago</td>
+		<td><%= note.created_at.strftime('%m/%d/%Y') %></td>
+		<td><%= link_to "edit", edit_note_path(note) %></td>
+		<% end %>
+    </tr>
+  </thead>
+</table>
+
+	<%#= render :partial=>"new_seat", :locals=>{:seat=>Seat.new(:flight_id=>@flight.id)} %>
+	<%#= render :partial=>"new_note", :locals=>{:note=>Note.new(:noteable_type=>"job", :noteable_id=>3 )} %>
+
+<!-- https://resources.oreilly.com/examples/9780596515775/blob/master/code/chap7_hfror_code_20081129/app/views/flights/show.html.erb -->
+	
+	<!-- The thing to remember with AJAX is that you don't redirect the request (normally), you just generate some text to send back to the browser. -->
+
+
+
+	<!-- Use build here, due to the polymorphic association --> 
+<%= render :partial=>"new_note", :locals=>{:note=>@job.notes.build} %>
+
+
+
+
+
+<!-- 
+	<hr/>
+	<h3>Add a Task</h3>
+	<ul>
+		<% @job.tasks.each do |task| %>
+		<li><%= task.created_at.strftime('%m/%d/%Y') %> - 
+			<%= task.title %> - <%= link_to "edit", edit_task_path(task) %>
+			<% end %></li>
+		</ul>
+
+		<%#= render :partial=>"new_seat", :locals=>{:seat=>Seat.new(:flight_id=>@flight.id)} %>
+		<%#= render :partial=>"new_note", :locals=>{:note=>Note.new(:noteable_type=>"job", :noteable_id=>3 )} %>
+
+		<!-- Use Task.new here, due to the has_many association (I think) --> 
+	
+	<%#= render :partial=>"new_task", :locals=>{:task=>Task.new(:job_id=>@job.id)} %>
+
+	</div><!-- col-md-4-->
+
