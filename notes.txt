@@ -4,6 +4,10 @@ CHEATSHEET
 rake db:rollback
 rake db:migrate
 rake db:fixtures load
+rake db:fixtures:load
+
+Use heroku run - on heroku 
+Use bundle exec - localhost 
 
 --------
 HOW TO SWITCH GIT BRANCHES
