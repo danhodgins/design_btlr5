@@ -30,8 +30,8 @@
         <!-- <td><%= job.body %></td> --> 
 		 <td><%= job.user_id %></td>
 		 <!-- THIS WILL THROW ERROR IF RECORDS DONT HAVE VALUES CUSTOMER AND DESIGNER NAME -->
-		  <td><%= link_to job.customer.name, job.customer %></td>
-		 <td><%= link_to job.designer.name, job.designer  %></td>
+		  <td><%= link_to job.customer, job.customer %></td>
+		 <td><%= link_to job.designer, job.designer  %></td>
         <td><%= link_to 'show', job %></td>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>

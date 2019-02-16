@@ -3075,3 +3075,219 @@ Processing by CustomersController#show as HTML
 Completed 200 OK in 79ms (Views: 69.3ms | ActiveRecord: 3.2ms)
 
 
+Started GET "/jobs" for 127.0.0.1 at 2019-02-16 01:33:03 -0800
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.3ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.2ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Designer Load (0.0ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Designer Load (0.0ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jobs/index.html.erb within layouts/application (72.4ms)
+Completed 200 OK in 156ms (Views: 98.2ms | ActiveRecord: 23.3ms)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2019-02-16 01:33:05 -0800
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mDesigner Load (0.4ms)[0m  [1m[34mSELECT "designers".* FROM "designers"[0m
+  Rendered jobs/_form.html.erb (5.8ms)
+  Rendered jobs/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 70ms (Views: 51.1ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2019-02-16 01:33:12 -0800
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Mdd9sYkhbcCluPvQ0r5Si8IQ7SZOTEgkUY3/O5dczRwvvOUdRXIk5QJdx3gy3CBEOreyf9pduZiIppO9uEPPyA==", "job"=>{"title"=>"ggg", "body"=>"ggg", "customer_id"=>"", "designer_id"=>""}, "commit"=>"Create Job"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mDesigner Load (0.7ms)[0m  [1m[34mSELECT "designers".* FROM "designers"[0m
+  Rendered jobs/_form.html.erb (9.4ms)
+  Rendered jobs/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 76ms (Views: 60.0ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2019-02-16 01:33:18 -0800
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fWlYKntAuEvEeQsplgI28lBkstzvcczaWflFez0oe4qXb4VkpYYvfHyon3nGWuF+G0PbtPntmhrfevStml/QPg==", "job"=>{"title"=>"ggg", "body"=>"ggg", "customer_id"=>"1", "designer_id"=>"2"}, "commit"=>"Create Job"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.5ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "jobs" ("title", "body", "created_at", "updated_at", "user_id", "customer_id", "designer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "ggg"], ["body", "ggg"], ["created_at", "2019-02-16 09:33:18.674302"], ["updated_at", "2019-02-16 09:33:18.674302"], ["user_id", 6], ["customer_id", 1], ["designer_id", 2]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/jobs/79
+Completed 302 Found in 21ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/jobs/79" for 127.0.0.1 at 2019-02-16 01:33:18 -0800
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"79"}
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mDesigner Load (0.4ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."noteable_id" = $1 AND "notes"."noteable_type" = $2[0m  [["noteable_id", 79], ["noteable_type", "Job"]]
+  Rendered jobs/_new_note.html.erb (3.3ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."job_id" = $1[0m  [["job_id", 79]]
+  Rendered jobs/show.html.erb within layouts/application (50.7ms)
+Completed 200 OK in 103ms (Views: 86.4ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2019-02-16 01:37:25 -0800
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.3ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.2ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Designer Load (0.0ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Designer Load (0.0ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Designer Load (0.0ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered jobs/index.html.erb within layouts/application (72.5ms)
+Completed 200 OK in 272ms (Views: 207.8ms | ActiveRecord: 21.2ms)
+
+
+Started DELETE "/jobs/75" for 127.0.0.1 at 2019-02-16 01:37:28 -0800
+Processing by JobsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"22KdOIblsAs7VMRCdNzkHUtFhuSCu8LtRkI0J+XFR1QxZEB2WCMnPIOFUBIkhDORAGLvjJQnlC3AwYXxQrLs4A==", "id"=>"75"}
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 75], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "jobs" WHERE "jobs"."id" = $1[0m  [["id", 75]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/jobs
+Completed 302 Found in 14ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2019-02-16 01:37:28 -0800
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.3ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Designer Load (0.0ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.3ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Designer Load (0.0ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered jobs/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 81ms (Views: 74.3ms | ActiveRecord: 2.3ms)
+
+
+Started DELETE "/jobs/76" for 127.0.0.1 at 2019-02-16 01:37:30 -0800
+Processing by JobsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8vf1t1UwbdjLynCV0GfgZslsf4A8/djzjAwuXQuzASkY8Sj5i/b673Mb5MWAPzfqgksW6CphjjMKj5+LrMSqnQ==", "id"=>"76"}
+  [1m[36mJob Load (5.3ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "jobs" WHERE "jobs"."id" = $1[0m  [["id", 76]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/jobs
+Completed 302 Found in 18ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2019-02-16 01:37:30 -0800
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.8ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.4ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.3ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Customer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Designer Load (0.0ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered jobs/index.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 93ms (Views: 83.2ms | ActiveRecord: 3.6ms)
+
+
+Started DELETE "/jobs/77" for 127.0.0.1 at 2019-02-16 01:37:32 -0800
+Processing by JobsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"msNq387KjyWnU2iTWdUj1z1o2qJkc1xOLZpXry1LtedwxbeREAwYEh+C/MMJjfRbdk+zynLvCo6rGeZ5ijweUw==", "id"=>"77"}
+  [1m[36mJob Load (0.9ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 77], ["LIMIT", 1]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "jobs" WHERE "jobs"."id" = $1[0m  [["id", 77]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/jobs
+Completed 302 Found in 15ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2019-02-16 01:37:32 -0800
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (8.0ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.2ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.3ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered jobs/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 79ms (Views: 64.2ms | ActiveRecord: 9.4ms)
+
+
+Started DELETE "/jobs/78" for 127.0.0.1 at 2019-02-16 01:37:34 -0800
+Processing by JobsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"m1uNYwGSeRWdDl/YzLFoGttz+AHTJqULAcKlrcG5RPhxXVAt31TuIiXfy4ic6b+WkFSRacW688uHQRR7Zs7vTA==", "id"=>"78"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 78], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "jobs" WHERE "jobs"."id" = $1[0m  [["id", 78]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/jobs
+Completed 302 Found in 9ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2019-02-16 01:37:34 -0800
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDesigner Load (0.2ms)[0m  [1m[34mSELECT  "designers".* FROM "designers" WHERE "designers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered jobs/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 53ms (Views: 47.6ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/jobs/79" for 127.0.0.1 at 2019-02-16 01:37:37 -0800
+Processing by JobsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wZEQBVwvP8K2OEM4UUtHxF8JcnckJ40a92wmaaJ7NrQrl81Lgumo9Q7p12gBE5BIFC4bHzK729px75e/BQydAA==", "id"=>"79"}
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "jobs" WHERE "jobs"."id" = $1[0m  [["id", 79]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/jobs
+Completed 302 Found in 11ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2019-02-16 01:37:37 -0800
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 52ms (Views: 46.6ms | ActiveRecord: 0.9ms)
+
+
