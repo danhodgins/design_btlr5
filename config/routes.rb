@@ -1,19 +1,39 @@
 Rails.application.routes.draw do
 
+  resources :jobs
+  resources :designers
   resources :customers
   devise_for :users
   
   resources :jobs do
     resources :customers
-    resources :tasks
   end
+  
+  resources :jobs do
+    resources :designers
+  end
+  
+  resources :customers do
+    resources :jobs 
+  end
+  
+  
+  resources :designers do
+    resources :jobs 
+  end
+  
+  
+    resources :designers do
+      resources :tasks
+    end
+  
   
     resources :tasks do
       resources :notes
     end
+    
     resources :jobs do
       resources :notes
-      
     end
  
     #This needs to be here, otherwise error (as notes resource didn't exist on its own)

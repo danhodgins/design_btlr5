@@ -12,7 +12,26 @@ before_action :authenticate_user!
     # else 
     #@user = current_user
     #@jobs = @user.jobs
-    @jobs = Job.all
+    #@jobs = Job.all
+    
+    
+    if params[:designer_id]
+      @jobs = Designer.find(params[:designer_id]).jobs
+      #@state = State.find(params[:state_id])
+      #@cities = State.find(params[:state_id]).citys
+    elsif params[:customer_id]
+      @jobs = Customer.find(params[:customer_id]).jobs
+      #@city = City.find(params[:city_id])
+    elsif params[:user_id]
+      @jobs = User.find(params[:user_id]).jobs
+    else
+      @jobs = Job.all
+    end
+    
+    
+    
+    
+    
   end
 
   # GET /jobs/1
@@ -82,7 +101,7 @@ before_action :authenticate_user!
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:title, :body, :customer_id )
+      params.require(:job).permit(:title, :body, :customer_id, :designer_id)
       #params.require(:customer).permit(:customer_id)
     end
 end

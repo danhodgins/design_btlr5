@@ -22,10 +22,14 @@
   </thead>
 </table>
 
+	<div style="border: 1px dashed #a9a9a9;">
+	JOB DESIGNER 
+		<h1><%= @job.designer_id %> | <%= @job.designer.name %>  </h1>
+	</div>
 
 	<div style="border: 1px dashed #a9a9a9;">
 	JOB CUSTOMER ID
-		<h1><%= @job.customer_id %> </h1>
+		<h1><%= @job.customer_id %> | <%= @job.customer.name %>  </h1>
 	</div>
 	
 	<div style="border: 1px dashed #a9a9a9;">

@@ -26,6 +26,11 @@
     <%= form.label :customer %>
     <%= form.collection_select :customer_id, Customer.all, :id, :name, {:prompt => '-- Select a Customer --'} %>
   </div>
+  
+  <div class="field" >
+    <%= form.label :designer %>
+    <%= form.collection_select :designer_id, Designer.all, :id, :name, {:prompt => '-- Select a Designer --'} %>
+  </div>
 
 
   <div class="actions">

@@ -60,3 +60,30 @@ This means you haven't created a migration for the foreign key.
 e.g. job needs customer_id:references 
 rails g migration AddCustomerToJobs customer:references
 
+-------
+https://stackoverflow.com/questions/5207038/the-better-way-to-pass-the-foreign-key-value-to-the-rails-controller
+You need not use the numeric ID's in your RESTful routes. Look at permalink_fu, and use the :permalink field rather than the :id to refer to each gallery resource.
+
+-----
+job.customer.name = working in console 
+job.customer.name = NOT working in jobs#index 
+
+reason was because the customer and designer fields were not populated for pre-exissting
+records in the database. Deleting those records solved the problem. 
+
+Nil error message for 
+job.customer.name
+job.designer.name
+
+
+
+
+
+
+
+
+
+
+
+
+
