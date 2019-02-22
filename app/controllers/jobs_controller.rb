@@ -12,9 +12,9 @@ before_action :authenticate_user!
     # else 
     #@user = current_user
     #@jobs = @user.jobs
-    #@jobs = Job.all
+    @jobs = Job.all
     
-    
+  
     if params[:designer_id]
       @jobs = Designer.find(params[:designer_id]).jobs
       #@state = State.find(params[:state_id])
@@ -27,7 +27,7 @@ before_action :authenticate_user!
     else
       @jobs = Job.all
     end
-    
+  
     
     
     

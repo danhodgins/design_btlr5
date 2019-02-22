@@ -2,21 +2,24 @@
 
 <h1>Customers</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Email address</th>
-      <th colspan="3"></th>
+		<th scope="col">ID</th>
+	<th scope="col">Name</th>
+      <th scope="col">Email Address</th>
     </tr>
   </thead>
 
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.name %></td>
-        <td><%= customer.email_address %></td>
-        <td><%= link_to 'Show', customer %></td>
+        <td><%= customer.id %></td>
+		<td><strong><%= link_to customer.name, customer %></strong></td>
+		<td><strong><%= customer.email_address %></strong></td>
+		 
+		 
+        <td><%= link_to 'show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -25,5 +28,7 @@
 </table>
 
 <br>
+
+
 
 <%= link_to 'New Customer', new_customer_path %>

@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   resources :jobs
   resources :designers
   resources :customers
+  
+  #This needs to be here, otherwise error (as notes resource didn't exist on its own)
+  resources :notes
+  
+  
   devise_for :users
+  
   
   resources :jobs do
     resources :customers
@@ -17,9 +23,17 @@ Rails.application.routes.draw do
     resources :jobs 
   end
   
+  resources :customers do
+    resources :designers
+  end
+  
   
   resources :designers do
     resources :jobs 
+  end
+  
+  resources :designers do
+    resources :customers 
   end
   
   
@@ -36,9 +50,7 @@ Rails.application.routes.draw do
       resources :notes
     end
  
-    #This needs to be here, otherwise error (as notes resource didn't exist on its own)
-    resources :notes
- 
+
 
     resources :users do
       resources :jobs

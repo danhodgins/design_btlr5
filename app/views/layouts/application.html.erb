@@ -404,6 +404,8 @@
 	  <ul class="nav navbar-nav nav-buttons" style="padding-bottom: 10px;">
 		  <% if user_signed_in? %>
 	  <li> <%= link_to "Jobs", jobs_path %></li>
+	   <li> <%= link_to "Designers", designers_path %></li>
+	    <li> <%= link_to "Customers", customers_path %></li>
 		<!-- <li><%= link_to current_user.email, :class => 'navbar-link' %></li> -->
 		<!-- <li>User ID: <%= current_user.id %></li>  --> 
 		<li><%= link_to 'Account', edit_user_registration_path, :class => 'navbar-link' %></li> 

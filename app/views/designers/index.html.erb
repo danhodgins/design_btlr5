@@ -2,19 +2,22 @@
 
 <h1>Designers</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+		<th scope="col">ID</th>
+	<th scope="col">Name</th>
     </tr>
   </thead>
 
   <tbody>
     <% @designers.each do |designer| %>
       <tr>
-        <td><%= designer.name %></td>
-        <td><%= link_to 'Show', designer %></td>
+        <td><%= designer.id %></td>
+		<td><strong><%= link_to designer.name, designer %></strong></td>
+		 
+		 
+        <td><%= link_to 'show', designer %></td>
         <td><%= link_to 'Edit', edit_designer_path(designer) %></td>
         <td><%= link_to 'Destroy', designer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -24,4 +27,6 @@
 
 <br>
 
-<%= link_to 'New Designer', new_designer_path %>
+
+
+<%= link_to 'New designer', new_designer_path %>

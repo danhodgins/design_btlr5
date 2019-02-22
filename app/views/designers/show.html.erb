@@ -1,9 +1,74 @@
+
 <p id="notice"><%= notice %></p>
 
+<h1>Designer Show - <%= @designer.name %></h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+	<th scope="col">Job ID</th>
+      <th scope="col">Title</th>
+	  <th scope="col">Submitted</th>
+	  <th scope="col">Updated</th>
+	  <th scope="col">Time PH</th>
+      <!-- <th>Body</th> --> 
+	   <th scope="col">DEV: User ID</th>
+	    <th scope="col">Customer </th>
+	     <th scope="col">Assigned To (Designer)</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @designer.jobs.each do |job| %>
+      <tr>
+        <td><%= link_to job.id, job %></td>
+		<td><strong><%= link_to job.title, job %></strong></td>
+		<td><%= time_ago_in_words(job.created_at) %></td>
+		<td><%= time_ago_in_words(job.updated_at) %></td>
+		<td><%=Time.use_zone('Sydney') { Time.current }.strftime("%I:%M %p") %></td>
+        <!-- <td><%= job.body %></td> --> 
+		 <td><%= job.user_id %></td>
+		 <!-- Only make call to .name if it exists. else, echo blank. -->
+		  <% if job.customer %>
+		  <td><%= link_to job.customer.name, job.customer %></td>
+		 <% else  %>
+		  <td></td>
+		  <% end %>
+		  
+		  <% if job.designer %>
+		 <td><%= link_to job.designer.name, job.designer  %></td>
+		 <% else  %>
+		  <td></td>
+		  <% end %>
+		 
+		 
+        <td><%= link_to 'show', @designer %></td>
+        <td><%= link_to 'Edit', edit_designer_path(@designer) %></td>
+        <td><%= link_to 'Destroy', @designer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+
 <p>
-  <strong>Name:</strong>
-  <%= @designer.name %>
+  <strong>Customers Assigned to This Designer</strong>
+  <% @designer.customers.each do |customer| %>
+  <li><%= link_to customer.name, customer %></li>
+  <% end %>
 </p>
+
+
+
+
+
 
 <%= link_to 'Edit', edit_designer_path(@designer) %> |
 <%= link_to 'Back', designers_path %>
