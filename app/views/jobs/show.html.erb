@@ -22,28 +22,6 @@
   </thead>
 </table>
 
-	<div style="border: 1px dashed #a9a9a9;">
-	JOB DESIGNER 
-		<h1><%= @job.designer_id %> | <%= @job.designer.name %>  </h1>
-	</div>
-
-	<div style="border: 1px dashed #a9a9a9;">
-	JOB CUSTOMER ID
-		<h1><%= @job.customer_id %> | <%= @job.customer.name %>  </h1>
-	</div>
-	
-	<div style="border: 1px dashed #a9a9a9;">
-	JOB ID
-		<h1><%= @job.to_param %> </h1>
-	</div>
-	
-  <%= params.inspect %>
-
-
-
-
-	<strong>Job User Id:</strong> 
-	<%#= @job.user.id %>
 
 
 <h3>Creative Brief</h3>
@@ -60,21 +38,35 @@
 <div class="border col-md-6">
 
 
-<h3>Notes On This job </h3>
 
-<table class="table">
-  <thead>
+
+<div class="notes">
+	
+	<h3>Notes On This job </h3>
+
+	<table class="table">
+	  <thead>
   
-	<% @job.notes.each do |note| %>
-	  <tr>
-		<td><%= note.body %></td>
-		<td><%= time_ago_in_words(note.created_at) %> ago</td>
-		<td><%= note.created_at.strftime('%m/%d/%Y') %></td>
-		<td><%= link_to "edit", edit_note_path(note) %></td>
+		<% @job.notes.each do |note| %>
+
+		 	  <tr>
+				<td><%= link_to note.id, note %></td>
+		 		<td><%= note.body %></td>
+		 		<td><%= time_ago_in_words(note.created_at) %> ago</td>
+		 		<td><%= note.created_at.strftime('%m/%d/%Y') %></td>
+		 		<td><%= link_to "edit", edit_note_path(note) %></td>
+		     </tr>
+	
 		<% end %>
-    </tr>
-  </thead>
-</table>
+	  </thead>
+	</table>
+	
+	
+	
+ </div><!-- notes -->
+ 
+
+ 
 
 	<%#= render :partial=>"new_seat", :locals=>{:seat=>Seat.new(:flight_id=>@flight.id)} %>
 	<%#= render :partial=>"new_note", :locals=>{:note=>Note.new(:noteable_type=>"job", :noteable_id=>3 )} %>
