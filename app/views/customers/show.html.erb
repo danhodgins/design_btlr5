@@ -10,6 +10,11 @@
   <%= @customer.email_address %>
 </p>
 
+<p>
+  <strong>Signed Up:</strong>
+  <%= time_ago_in_words(@customer.created_at) %> ago
+</p>
+
 
 <h3>Design Requests - For This Customer</h3>
 

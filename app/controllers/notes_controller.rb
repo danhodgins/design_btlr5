@@ -42,7 +42,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.js 
+        format.js { notice: 'Note was successfully created, but page NOT refreshed.' }
         format.html {  redirect_to @note, notice: 'Note was successfully created.' }
        
         format.json { render :show, status: :created, location: @note }
